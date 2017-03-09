@@ -499,22 +499,24 @@ sub display_help
 {
 #    print <<END_HELP
 print qq{
-scan_var.pl: a simple parameter scan utility for BioNetGen
+sample_vars.pl: a multidimensional parameter scan utility for BioNetGen
 ----------------------------------------------------------
 SYNOPSIS:
-  scan_var.pl [OPTS] MODEL VAR MIN MAX NPTS     : perform parameter scan
-  scan_var.pl --help                            : display help
-
+scan_var.pl [OPTS] MODEL (VAR MIN MAX)xn_dims NPTS     : perform parameter scan (specify a VAR, MIN, and MAX for every dimension scanned)
+scan_var.pl --help                                     : display help
+        
 OPTIONS:
-  --verbose       : verbose output
-  --log           : select parameter values on a log scale
-  --n_steps N     : number of output time steps per simulation
-  --t_end VAL     : end time for each simulation 
-  --prefix PREFIX : prefix for output file (default: MODEL basename)
-  --steady-state  : check for steady state at end of each simulation 
-                    (ignored if method not 'ode')
-  --method METHOD : simulation method (default: ode)
-  --pla_output    : print PLA-specific output (ignored if method not 'pla')
+--verbose       	: verbose output
+--log           	: select parameter values on a log scale
+--n_steps N     	: number of output time steps per simulation
+--t_end VAL     	: end time for each simulation
+--prefix PREFIX 	: prefix for output file (default: MODEL basename)
+--steady-state  	: check for steady state at end of each simulation (ignored if method not 'ode')
+--method METHOD     : simulation method (default: ode)
+--pla_output    	: print PLA-specific output (ignored if method not 'pla')
+--samplingMethod	: parameter sampling method (default: random)
+--varMeasured   	: transformation of observables to output (default: end)
+--n_dims        	: number of dimensions to scan over (default: 2)
 
 Runs simulations of MODEL with a range of values of parameter VAR using the method 
 METHOD. Simulation data is placed in a directory folder named PREFIX_VAR. A data 
